@@ -216,33 +216,4 @@ python bias_multi_metric.py -m "bma" -g "both" -c "censored" -b "multi" -u "tags
 python bias_multi_metric.py -m "bma" -g "both" -c "censored" -b "multi" -u "multi"
 ```
 
-##### cartella bias
-
--   **stima_bias**  
-    per ogni modello unimodale, ensemble e multimodale vi è un notebook per stimare il bias con le metriche adottate
--   **identity elements**  
-    due notebook per la stima degli identity elements con approccio bayes per caps e tags  
-    (testo ce l’hai tu)
--   **identity terms**  
-    file di testo con all’interno identity terms testuali descrittivi e identity tags
--   **correzione**  
-    un notebook per ogni correzione (neg, pos, neu) per ogni ensemble (3 unimodali, uno multimodale)
--   **results**  
-    per ogni esperimento di correzione e per ogni modelli come nella cartella correzione vi sono i csv con le probabilità corrette dell’ensemble che servono alla stima del bias sui modelli corretti  
-    cartelle come DTR, SVM…NBY E single\_bma\_### possono essere ignorate, le lascio per sicurezza ci sono dei csv risultati intermedi della stima del bias e le sposto nella cartella **intermedi** casomai potessero servire (quindi tolte queste rimangono le 12 cartelle corrsipondenti ai 12 file di correzione)
--   **file BMA\_UNBIASED\_MULTIMODAL.ipynb**:  
-    bma multimodale corretto con risultati test e sintest (gli ubma unimodali sono nei file degli stessi bma in 2strategy test)
-
-### risultati
-
-
-
-risultati seconda strategia di test quella definitiva:  
-divisa per componente e insieme (test o sintest)  
-da qui vengono presi i risultati pubblicati nella tesi e presentazione e probabilità dei fold usate per il bias
-## License
-
-Licenza Open Source: modifica, integrazione, spaccialo per tuo (non ti conviene) elimina tutto, pubblica un paper, un libro,  
-insomma facci quel che vuoi con tutti i permessi del mondo  
-**W L’OPEN SOURCEEEEE!!!**
 
