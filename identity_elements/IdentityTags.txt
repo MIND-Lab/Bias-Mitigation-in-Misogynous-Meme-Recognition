@@ -1,0 +1,1 @@
+['Woman', 'Earring', 'Lip', 'Strap', 'Tire', 'Eyebrow', 'Girl', 'Teeth', 'Short', 'Dress']
