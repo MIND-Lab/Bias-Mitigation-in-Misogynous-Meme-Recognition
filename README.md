@@ -146,10 +146,21 @@ Il risultato è poi salvato in data/feature_extraction/
 -   **BMA UNIMODALI** contiene k fold per train test e sintest per ogni componente inoltre è presente anche la correzione UBMA in ognuno dei tre file
 	- unimodal_tags_bma.ipynb contiene modelli tags e per train test e sintest
 	- unimodal_text_bma.ipynb contiene modelli text train test e sintest
-	- unimodal_bma_tags_REPAIR.ipynb stessi modelli stessa procedura ma con i 5 dataset di 		repair
+	- unimodal_bma_tags_REPAIR.ipynb stessi modelli stessa procedura ma con i 5 dataset di repair
 	- unimodal_bma_text_REPAIR.ipynb stessi modelli stessa procedura text con i dataset di repair
+```sh
+conda activate bma_text
+cd 2_strategy_test/
+per usare i fold che servono a calcolare i valori di bias usare --mitigation
+senza questo parametro saranno usati i fold di measure per misurare il bias sui meme non usati nei fold mitigation
+
+python bma_text.py --syn --mitigation
+python bma_text.py --syn
+
+```	
+
 	
--  **UBMA_MULTI.py** contiene il codice per runnare i risultati del BMA_multimodale diventato text+tags (senza caption) prende 3 parametri:
+-  **UBMA_MULTI.py** contiene il codice per runnare i risultati del BMA_multimodale diventato text+tags prende 3 parametri:
  *-d dataset "test" o "syn"*
   -*c correzione*: [neu, neg, pos, dyn_base, dyn_bma, terms_bma, masked, censored] e i 5 tipi di repair [treshold, rank, rank_cls, uniform, sample]
  se *c = "none"* sto eseguendo il bma multimodale senza correzioni
@@ -164,12 +175,7 @@ python UBMA_MULTI.py -d "test" -c "masked" -m "text"
 python UBMA_MULTI.py -d "syn" -c "masked" -m "text"
 python UBMA_MULTI.py -d "test" -c "masked" -m "multi"
 python UBMA_MULTI.py -d "syn" -c "masked" -m "multi"
-python UBMA_MULTI.py -d "test" -c "censored" -m "tags"
-python UBMA_MULTI.py -d "syn" -c "censored" -m "tags"
-python UBMA_MULTI.py -d "syn" -c "censored" -m "text"
-python UBMA_MULTI.py -d "test" -c "censored" -m "text"
-python UBMA_MULTI.py -d "test" -c "censored" -m "multi"
-python UBMA_MULTI.py -d "syn" -c "censored" -m "multi"
+
 ```
 per i bma unimodali e le loro correzioni 
 Ubma_tags.py Ubma_text.py
@@ -177,15 +183,7 @@ hanno solo correzioni in inferenza  [neu, pos, neg, dyn_base, dyn_bma, terms_bma
 poichè quelle in training sono già effettuate trainando i bma_unimodali nei predenti notebook corrispondenti questi file quindi hanno solo 2 parametri -d dataset e -c correzione
 python Ubma_tags.py -d "test" -c "neu"
 ### bias
-bias/identity_elements/
-qui ci sono i notebook per calcolare identity terms e identity tags
-#### cartella data/result2strategy
-in questa cartella ci sono i risultati dei bma unimodali divisi nelle cartelle 
-text/ e tags/ un csv per fold nelle cartelle test e new sintest poi per ogni correzione in training sono riportati i risultati nella cartella ad esempio masked/test masked/new_sintest
-#### cartella 2strategy_test/results
-qui ci sono tutti i risultati delle correzioni di UBMA_MULTI e Ubma_tags e Ubma_text
-ogni cartella è chiamata con la componente + correzione es: text_bma_neg
-per i bma unimodali non ci sono le cartelle della correzione in training perchè i risultati sono già in result2strategy, per il bma multi modale tutte le correzioni comprese quelle in training sono in results/multi/ perchè il bma multimodale masked e censored l'ho eseguito da UBMA_MULTI.py che salva qui i risultati
+
 #### calcolo bias
 bias_metric.py bias per bma unimodale testo
 bias_tags_metric.py bias per bma unimodale tags
