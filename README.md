@@ -139,9 +139,7 @@ Il risultato è poi salvato in data/feature_extraction/
 
 #### Datasets
 
--   **Captions/analisi_captions.ipynb** confronta m2 azure e oscar
--   **data/dataset_creation.ipynb** creazione dei tre dataset testo caps e tags
--   **data/datasets/** cartella con tutti i dataset divisi per componente e i dataset di partenza test, sin e train
+-   [**data/datasets/**] (https://drive.google.com/drive/folders/1vw6Y7TSTZy5vYlRwEqQYFAEVC6oCv0d2?usp=drive_link) cartella con tutti i dataset divisi per componente e i dataset di partenza test, sin e train
 
 -   **BMA UNIMODALI** contiene k fold per train test e sintest per ogni componente inoltre è presente anche la correzione UBMA in ognuno dei tre file
 	- unimodal_tags_bma.ipynb contiene modelli tags e per train test e sintest
